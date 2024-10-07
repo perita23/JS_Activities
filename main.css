@@ -4,3 +4,8 @@ table{
 th, td {
     border: 1px solid;
   }
+
+#counter{
+    display: flex;
+    margin-top: 10vh;
+}
