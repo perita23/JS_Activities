@@ -148,7 +148,7 @@ function resetAlarm() {
     clearInterval(intervalClock);
     currentAlarms.setHTMLUnsafe(null)
 }
-function stopAlarm0() {
+function stopAlarm() {
     alarmSound.pause();
     alarmSound.currentTime = 0;
     currentAlarms.setHTMLUnsafe(null)
