@@ -88,6 +88,7 @@ let volumeInput = document.getElementById("vol").value;
 let alarmHourInput = document.getElementById("alarmHour");
 let alarmMinInput = document.getElementById("alarmMinuts");
 
+let currentAlarms = document.getElementById("currentAlarms")
 let alarmFinished = false;
 let intervalClock;
 
@@ -129,6 +130,7 @@ function setAlarm() {
         clearInterval(intervalClock);
     }
     console.log("alarmaSeteada")
+    currentAlarms.setHTMLUnsafe("<b>Alarma para las --></b> "+alarmHour+":"+alarmMinut)
     intervalClock = setInterval(function () {
         let data = new Date();
         if (data.getHours() === alarmHour && data.getMinutes() === alarmMinut) {
@@ -142,6 +144,14 @@ function setAlarm() {
     }, 1000)
 }
 
-
+function resetAlarm() {
+    clearInterval(intervalClock);
+    currentAlarms.setHTMLUnsafe(null)
+}
+function stopAlarm0() {
+    alarmSound.pause();
+    alarmSound.currentTime = 0;
+    currentAlarms.setHTMLUnsafe(null)
+}
 
 

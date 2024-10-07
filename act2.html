@@ -33,6 +33,7 @@
         </table>
     </div>
     <hr>
+    <h1>Cuenta atras</h1>
     <div id="counter">
         <input type="number" name="minuts" id="minuts" value="0" min="0">
         <input type="number" name="seconds" id="seconds" value="0" min="0" max="59">
@@ -48,7 +49,9 @@
     <div id="alarmas">
         <h3>Alarmas</h3>
         <div id="setAlarmsDiv">
+            <span>Horas</span>
             <input type="number" name="alarmHour" id="alarmHour" value="0" min="0" max="24">
+            <span>Minutos</span>
             <input type="number" name="alarmMinuts" id="alarmMinuts" value="0" min="0" max="59">
             <div>
                 <select name="alarmSound" id="alarmSound">
@@ -58,8 +61,11 @@
             </div>
             <input type="range" min="0" max="1" step="0.2" id="vol" onchange="change_inp_vol()" />
             <button type="button" onclick="setAlarm()">Set Alarma</button>
-            <button type="button">Reiniciar</button>
-            <button type="button">Parar</button>
+            <button type="button" onclick="resetAlarm()">Reiniciar</button>
+            <button type="button" onclick="stopAlarm()">Parar</button>
+        </div>
+        <div id="currentAlarms">
+
         </div>
         <div id="sounds">
             <h2>Sonidos</h2>
