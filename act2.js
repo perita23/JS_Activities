@@ -12,7 +12,7 @@ let interval;
 let isPaused = false;
 let remainingMinuts;
 let remainingSeconds;
-let alarma = new Audio("/DRUMC0.WAV");
+let alarma = new Audio("/audios/DRUMC0.WAV");
 alarma.loop = true;
 
 function playAlarm() {
@@ -81,3 +81,67 @@ function resetCron() {
     remainingSeconds = null
     stopAlarm();
 }
+
+/*--------------------------------Tercera Parte-------------------------------------*/
+
+let volumeInput = document.getElementById("vol").value;
+let alarmHourInput = document.getElementById("alarmHour");
+let alarmMinInput = document.getElementById("alarmMinuts");
+
+let alarmFinished = false;
+let intervalClock;
+
+setInterval(function () {
+    let data = new Date();
+    let clock = document.getElementById("reloj");
+
+    clock.innerHTML = `<h1>`
+        + data.getHours()
+        + ":" + data.getMinutes()
+        + ":" + data.getSeconds() + `</h1>`
+}, 1000);
+
+function change_inp_vol() {
+    volumeInput = document.getElementById("vol").value;
+    let tone = new Audio("/audios/tone.mp3");
+    tone.volume = volumeInput;
+    tone.play();
+}
+
+
+function setAlarm() {
+    alarmHourInput = document.getElementById("alarmHour");
+    alarmMinInput = document.getElementById("alarmMinuts");
+    let alarmMinut = parseInt(alarmMinInput.value);
+    let alarmHour = parseInt(alarmHourInput.value);
+    let alarmVolume = volumeInput;
+    let audioSrc = document.getElementById("alarmSound").value;
+    
+    let alarmSound = new Audio(audioSrc);
+    alarmSound.volume = alarmVolume;
+
+    if (isNaN(alarmHour) || isNaN(alarmMinut) || alarmHour < 0 || alarmMinut < 0 || alarmMinut > 59 || alarmHour < 0 || alarmHour > 24) {
+        alert("Por favor, introduce un tiempo válido.");
+        return;
+    }
+
+    if (intervalClock) {
+        clearInterval(intervalClock);
+    }
+    console.log("alarmaSeteada")
+    intervalClock = setInterval(function () {
+        let data = new Date();
+        if (data.getHours() === alarmHour && data.getMinutes() === alarmMinut) {
+            clearInterval(intervalClock);
+            alarmSound.loop = true;
+            alarmSound.play();  
+        }
+        console.log(data.getHours(), data.getMinutes());
+        console.log("------")
+        console.log(alarmHour,alarmMinut)
+    }, 1000)
+}
+
+
+
+

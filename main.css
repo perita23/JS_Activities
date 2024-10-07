@@ -20,3 +20,21 @@ td {
 #buttons button {
     margin: 5px;
 }
+
+#setAlarmsDiv{
+    display: flex;
+    gap: 5px;
+}
+#sounds{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    margin-top: 3vh;
+}
+.sounds-cont{
+    border-radius: 10px;
+    background-color: rgb(197, 197, 197);
+    width: fit-content;
+    padding: 1px;
+    text-align: center;
+}

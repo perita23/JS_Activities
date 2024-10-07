@@ -32,6 +32,7 @@
             </tbody>
         </table>
     </div>
+    <hr>
     <div id="counter">
         <input type="number" name="minuts" id="minuts" value="0" min="0">
         <input type="number" name="seconds" id="seconds" value="0" min="0" max="59">
@@ -41,6 +42,38 @@
         <button type="button" onclick="pauseCron()">Parar</button>
         <button type="button" onclick="resetCron()">Reiniciar</button>
     </div>
+    <hr>
+    <div id="reloj">
+    </div>
+    <div id="alarmas">
+        <h3>Alarmas</h3>
+        <div id="setAlarmsDiv">
+            <input type="number" name="alarmHour" id="alarmHour" value="0" min="0" max="24">
+            <input type="number" name="alarmMinuts" id="alarmMinuts" value="0" min="0" max="59">
+            <div>
+                <select name="alarmSound" id="alarmSound">
+                    <option value="/audios/DRUMC0.WAV">DRUMC0</option>
+                    <option value="/audios/FANFARE1.WAV">FANFARE</option>
+                </select>
+            </div>
+            <input type="range" min="0" max="1" step="0.2" id="vol" onchange="change_inp_vol()" />
+            <button type="button" onclick="setAlarm()">Set Alarma</button>
+            <button type="button">Reiniciar</button>
+            <button type="button">Parar</button>
+        </div>
+        <div id="sounds">
+            <h2>Sonidos</h2>
+            <div class="sounds-cont">
+                <h4>DRUMC0</h4>
+                <audio controls src="audios/DRUMC0.WAV"></audio>
+            </div>
+            <div class="sounds-cont">
+                <h4>FANFARE</h4>
+                <audio controls src="audios/FANFARE1.WAV"></audio>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
